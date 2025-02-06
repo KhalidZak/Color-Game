@@ -6,6 +6,7 @@ const colorOption = document.querySelector(".option");
 const gameStat = document.querySelector(".gameStatus");
 const scoreDisplay = document.querySelector(".scoreValue");
 const newGameButton = document.querySelector(".newGame");
+const newGameButtonOne = document.querySelector(".newGame-1");
 const confettiContainer = document.querySelector(".confetti-container");
 
 let targetColor;
@@ -129,4 +130,5 @@ function resetGame() {
 
 //start game
 newGameButton.addEventListener("click", resetGame);
+newGameButtonOne.addEventListener("click", resetGame);
 generateColors();
