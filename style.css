@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("images/1700.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    z-index: 999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Spinner Animation */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hiding game initially */
+.colorGame {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.colorGame {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.774);
+    border-radius: 6px;
+    width: 40vw;
+    height: auto;
+}
+
+header {
+    margin: 1.3rem 0 0 0;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+header div {
+    font-style: italic;
+}
+
+.topKey {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 10rem;
+}
+
+.score {
+    width: 7rem;
+    background: #00ff88;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.newGame {
+    background: #ffcc00;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newGame:hover {
+    background-color: #e6b800;
+}
+
+.main-game {
+    text-align: center;
+    margin: 1.7rem 0 2rem 0;
+}
+
+.targetColor {
+    width: 6rem;
+    height: 6rem;
+    margin: 10px auto;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.option:hover {
+    transform: scale(1.1);
+}
+
+/* .gameStatus {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+ */
+
+/* Celebration Animation */
+.gameStatus {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease;
+    margin-top: 10px;
+}
+
+.gameStatus.show {
+    opacity: 1;
+    transform: scale(1);
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+.gameStatus.wrong {
+    opacity: 1;
+    transform: scale(1);
+    color: #33a872;
+}
+
+@keyframes bounce {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+
+/* or Tablets (Medium Screens) */
+@media (max-width: 1024px) {
+    .colorGame {
+        width: 60vw;
+        height: 75vh;
+    }
+
+    .topKey {
+        gap: 5rem;
+    }
+
+    .score,
+    .newGame {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .targetColor {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* 📌 For Tablets (Medium Screens) */
+@media (max-width: 1024px) {
+    .colorGame {
+        width: 60vw;
+        height: auto;
+    }
+
+    .topKey {
+        gap: 5rem;
+    }
+
+    .score, .newGame {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .targetColor {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* 📌 For Smartphones (Small Screens) */
+@media (max-width: 767px) {
+    body {
+        height: auto;
+        padding: 20px;
+    }
+
+    .colorGame {
+        width: 90vw;
+        height: auto;
+        padding: 20px;
+    }
+
+    /* .topKey {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    } */
+
+    .score, .newGame {
+        font-size: 14px;
+        padding: 7px 12px;
+    }
+    .newGame{
+        position: absolute;
+        top: 27.3rem;
+    }
+
+    .targetColor {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .option {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gameStatus {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 404px) {
+    .newGame{
+        top: 30.5rem;
+    }
+}
+
+@media (max-width: 252px) {
+    .newGame{
+        top: 38.6rem;
+    }
+}

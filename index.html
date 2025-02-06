@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+     <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+
+    <div class="colorGame">
+        <header>
+            <h1>Color Game</h1>
+            <div data-testid="gameInstructions">Guess the correct color!</div>
+        </header>
+
+        <main>
+            <div class="topKey">
+                <div class="score" data-testid="score">score: <span class="scoreValue">0</span></div>
+                <button class="newGame"  data-testid="newGameButton">New Game</button>    
+            </div>
+
+            <div class="main-game">
+                <div class="match">Match this color:</div>
+                <div class="targetColor" data-testid="colorBox"></div>
+                <div class="gameStatus" data-testid="gameStatus"></div>
+                <div class="options">
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</body>
+
+</html>
