@@ -10,12 +10,14 @@
 </head>
 
 <body>
-     <div class="loading-screen" id="loadingScreen">
+    <div class="user-name">Khalid Zakariya</div>
+    <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
         <p>Loading...</p>
     </div>
 
     <div class="colorGame">
+        <div class="confetti-container"></div>
         <header>
             <h1>Color Game</h1>
             <div data-testid="gameInstructions">Guess the correct color!</div>
@@ -24,7 +26,7 @@
         <main>
             <div class="topKey">
                 <div class="score" data-testid="score">score: <span class="scoreValue">0</span></div>
-                <button class="newGame"  data-testid="newGameButton">New Game</button>    
+                <button class="newGame" data-testid="newGameButton">New Game</button>
             </div>
 
             <div class="main-game">
@@ -34,9 +36,8 @@
                 <div class="options">
                 </div>
             </div>
-            
+
         </main>
     </div>
 </body>
-
 </html>

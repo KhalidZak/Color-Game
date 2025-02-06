@@ -6,6 +6,7 @@ const colorOption = document.querySelector(".option");
 const gameStat = document.querySelector(".gameStatus");
 const scoreDisplay = document.querySelector(".scoreValue");
 const newGameButton = document.querySelector(".newGame");
+const confettiContainer = document.querySelector(".confetti-container");
 
 let targetColor;
 let score = 0;
@@ -61,15 +62,47 @@ function generateColors() {
   });
 }
 
+// Function to create confetti
+function createConfetti() {
+  for (let i = 0; i < 50; i++) {
+    // Number of confetti pieces
+    let confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+
+    // Random Position
+    confetti.style.left = `${Math.random() * 100}vw`;
+    confetti.style.animationDuration = `${Math.random() * 2 + 2}s`; // 2-4s duration
+
+    // Random Colors
+    let colors = [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ffcc00",
+      "#ff66ff",
+      "#00ffff",
+    ];
+    confetti.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    confettiContainer.appendChild(confetti);
+
+    // Remove confetti after animation
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
+}
+
 //checking if the selected color is correct
 function checkAnswer(selectedColor) {
   if (selectedColor === targetColor) {
+    createConfetti();
     score++;
     scoreDisplay.textContent = score;
     gameStat.textContent = "🎉 Correct Answer! 🎉";
-    gameStat.style.color = " #33a872";
+    gameStat.style.color = "#33a872";
     gameStat.style.fontSize = "20px";
-
     gameStat.classList.add("show");
     setTimeout(() => {
       gameStat.classList.remove("show");
